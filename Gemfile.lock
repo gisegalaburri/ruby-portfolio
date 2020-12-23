@@ -98,7 +98,7 @@ GEM
     puma (5.1.1)
       nio4r (~> 2.0)
     rack (2.2.3)
-    rack-mini-profiler (2.2.0)
+    rack-mini-profiler (2.2.1)
       rack (>= 1.2.0)
     rack-proxy (0.6.5)
       rack
@@ -195,7 +195,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 2.7.0p0
+   ruby 2.7.2
 
 BUNDLED WITH
-   2.2.2
+   2.2.3
