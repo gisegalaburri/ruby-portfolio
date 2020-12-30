@@ -3,13 +3,14 @@
 #this embedded ruby 
 #<% process the ruby but not render in the view
 # <%= renders the embedded ruby code in the view
-# image_tag is from rails its a method that receives an URL image and render out the img
-%>
+# image_tag is from rails its a method that receives an URL image and render out the img -> unless -> renders the images if the condition is true
+#%>
 
 <% @portfolio_items.each do |portfolio_item| %>
 
     <p><%= portfolio_item.title %></p>
     <p><%= portfolio_item.subtitle %></p>
     <p><%= portfolio_item.body %></p>
-    <%= image_tag portfolio_item.thumb_image %>
+    <%= image_tag portfolio_item.thumb_image unless portfolio_item.thumb_image.nil? %>
+    
 <% end %>
