@@ -1,0 +1,14 @@
+<h1>Porfolio Items</h1>
+<% #loop @portfolio_items 
+#this embedded ruby 
+#<% process the ruby but not render in the view
+# <%= renders the embedded ruby code in the view
+%>
+
+<% @portfolio_items.each do |portfolio_item| %>
+
+    <p><%= portfolio_item.title %></p>
+    <p><%= portfolio_item.subtitle %></p>
+    <p><%= portfolio_item.body %></p>
+    <%= image_tag portfolio_item.thumb_image %>
+<% end %>

@@ -1,3 +1,4 @@
+#Made with scaffold
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   #before_action evita la repeticion de codigo, o sea, repite el codigo del metodo set_blog en show, edit, update, destroy -> entre [] se indica en qué metodos se usa el metodo set_blog y only 
