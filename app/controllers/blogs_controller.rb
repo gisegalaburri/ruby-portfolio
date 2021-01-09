@@ -1,5 +1,6 @@
+#Made with scaffold
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
   #before_action evita la repeticion de codigo, o sea, repite el codigo del metodo set_blog en show, edit, update, destroy -> entre [] se indica en qué metodos se usa el metodo set_blog y only 
 
   # index, show, new, create, update & destroy are reserved word inside Rails Controller
@@ -82,11 +83,23 @@ class BlogsController < ApplicationController
     end
   end
 
+  def toggle_status
+    #this is gem to debug
+    #byebug
+    if @blog.draft?
+      @blog.published!
+    elsif @blog.published?
+      @blog.draft!
+    end
+    redirect_to blogs_url, notice: 'Post status has been updated.'
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
       # this is shows the blogs, is like this code where written in show method
-      @blog = Blog.find(params[:id])
+      @blog = Blog.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

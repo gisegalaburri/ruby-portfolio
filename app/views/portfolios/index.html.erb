@@ -1,0 +1,35 @@
+<h1>Porfolio Items</h1>
+<%
+#  loop @portfolio_items 
+# this embedded ruby 
+# <% process the ruby but not render in the view
+# <%= renders the embedded ruby code in the view
+# image_tag is from rails its a method that receives an URL image and render out the img -> unless -> renders the images if the condition is true
+
+
+# <a href="portfolios/new">Create New Item</a>  
+
+# <p> 
+# new_portfolio -> Prefix -> rails routes to see all the prefix
+#   <%= new_portfolio_path % > devuelve --> portfolio/new
+# </p>
+
+# <p>
+#   <%= new_portfolio_url % > devuelve --> http://localhost:3000/portfolios/new
+# </p> 
+# 
+%>
+
+
+<%= link_to "Create New Item", new_portfolio_path %>
+
+<% @portfolio_items.each do |portfolio_item| %>
+  <% # portfolio_path(portfolio_item.id) -> .id can be deleted cause rails know i'm passing the id%>
+  <p><%= link_to portfolio_item.title, portfolio_show_path(portfolio_item) %></p>
+  <p><%= portfolio_item.subtitle %></p>
+  <p><%= portfolio_item.body %></p>
+  <%= image_tag portfolio_item.thumb_image unless portfolio_item.thumb_image.nil? %>
+  <%= link_to "Edit", edit_portfolio_path(portfolio_item) %>
+  <%#<a href="/portfolios/<%= portfolio_item.id % >/edit">Edit two</a>%>
+  <%= link_to 'Delete Portfolio Item', portfolio_path(portfolio_item), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
