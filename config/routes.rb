@@ -17,7 +17,12 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
 
   # resources -> reserved word -> encapsulates all the popular routes that the app use. -> restful routing -> means especific and standardized names for our routes -> resources contains all the routes
-  resources :blogs
+  resources :blogs do
+    member do
+      # this created a new route: toggle_status_blog
+      get :toggle_status
+    end
+  end
   
   # the root path
   root to: 'pages#home'
