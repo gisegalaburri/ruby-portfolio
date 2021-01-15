@@ -6,4 +6,7 @@ class Blog < ApplicationRecord
 
   # rollback if some of this atrributes are null
   validates_presence_of :title, :body
+
+  # associate blogs to 1 topic 
+  belongs_to :topic
 end
