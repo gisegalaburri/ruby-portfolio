@@ -13,6 +13,10 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio_item = Portfolio.new
+    # it will instatiate 3 portfolio_items and create 3 technologies 
+    # associated with each portfolio_item
+    # later it will be change to a dynamic techonologies quantity with JavaScript
+    3.times { @portfolio_item.technologies.build }
   end
 
    # Creates portfolios
@@ -20,7 +24,8 @@ class PortfoliosController < ApplicationController
   # POST /portfolios.json
   def create
     #Takes the form parameters
-    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))
+    # added technologies_attributes
+    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
     # permit -> this are strong parameters
 
     respond_to do |format|
