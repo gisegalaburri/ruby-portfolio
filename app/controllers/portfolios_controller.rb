@@ -6,6 +6,7 @@ class PortfoliosController < ApplicationController
     @portfolio_items = Portfolio.all
   end
 
+  # scope actions
   def angular
     @angular_portfolio_items = Portfolio.angular
   end
