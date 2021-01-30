@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # resources -> used for any kind of CRUD 
   # custom routes for resources
   # as: is my own custom route method
