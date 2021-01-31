@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # this is for authentication
+  # in path_names are custom routes
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   # resources -> used for any kind of CRUD 
   # custom routes for resources
   # as: is my own custom route method
