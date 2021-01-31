@@ -1,6 +1,9 @@
 module DeviseWhitelist
   extend ActiveSupport::Concern
 
+
+  # This allows to permit custom params in the form,
+  # related with devise (authentication)
   included do 
     before_action :configure_permitted_paramters, if: :devise_controller?
   end
